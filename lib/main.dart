@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'LoginPage.dart';
+import 'package:flutter2/pages/Calculator.dart';
+import 'package:flutter2/routes/pages.dart';
+import 'package:flutter2/routes/routes.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPages(),
+      initialRoute: AppRoutes.Calculator,
+      getPages: AppPages.pages,
     );
   }
 }

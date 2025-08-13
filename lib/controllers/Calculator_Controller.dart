@@ -41,10 +41,10 @@ class CalculatorController extends GetxController {
     print("hasil kali " + result.toString());
     textresult.value = result.toString();
   }
-  void clear(){
-     txtangka1.clear();
+
+  void clear() {
+    txtangka1.clear();
     txtangka2.clear();
-    textresult.value = "";}
-   
-  
+    textresult.value = "";
+  }
 }

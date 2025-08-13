@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'RegisterPage.dart';
+import 'CustomButton.dart';
+import 'CustomTextField.dart';
 
 class LoginPages extends StatefulWidget {
   const LoginPages({super.key});
@@ -39,29 +41,16 @@ class _LoginPagesState extends State<LoginPages> {
             Center(
               child: Container(
                 width: 100,
-                child: Image.asset("assets/alip.jpg"),
+                child: Image.asset("assets/images/alip.jpg"),
               ),
             ),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 10),
-              child: TextField(
-                controller: usernameController,
-                decoration: InputDecoration(
-                  labelText: "Username",
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              child: Customtextfield(controller: usernameController, label: "username", labelcolor: Colors.black38, pass: false)
             ),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 10),
-              child: TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              child: Customtextfield(controller: passwordController, label: "password", labelcolor: Colors.black, pass: false)
             ),
             Container(
               margin: EdgeInsets.all(10),

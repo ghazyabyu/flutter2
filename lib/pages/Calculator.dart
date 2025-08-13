@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter2/CustomButton.dart';
 import 'package:flutter2/CustomTextField.dart';
 import 'package:flutter2/controllers/Calculator_Controller.dart';
+import 'package:flutter2/pages/Football_player.dart';
+import 'package:flutter2/routes/routes.dart';
 import 'package:get/get.dart';
 
 class Calculator extends StatelessWidget {
@@ -30,6 +32,7 @@ class Calculator extends StatelessWidget {
             pass: false,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Custombutton(
                 myText: "+",
@@ -48,6 +51,7 @@ class Calculator extends StatelessWidget {
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Custombutton(
                 myText: "*",
@@ -75,11 +79,19 @@ class Calculator extends StatelessWidget {
               );
             }),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Custombutton(
             myText: "clear",
             myTextColor: Colors.deepPurple,
             onPressed: calculatorController.clear,
+          ),
+          SizedBox(height: 10),
+          Custombutton(
+            myText: "move to football page",
+            myTextColor: Colors.deepPurple,
+            onPressed: () {
+              Get.to(() => FootballPlayer());
+            },
           ),
         ],
       ),
