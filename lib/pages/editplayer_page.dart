@@ -43,7 +43,7 @@ class EditPlayerPage extends StatelessWidget {
               controller: positionController,
               decoration: const InputDecoration(labelText: 'Posisi'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), 
             ElevatedButton(
               onPressed: () {
                

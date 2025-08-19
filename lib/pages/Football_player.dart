@@ -22,11 +22,23 @@ class FootballPlayer extends StatelessWidget {
             itemCount: footballplayercontroller.Players.length,
             itemBuilder: (context, index) {
               return ListTile(
-                onTap: (){
-                  print(" Player Clicked : "+ footballplayercontroller.Players[index].name);
+                onTap: () {
+                  print(
+                    " Player Clicked : " +
+                        footballplayercontroller.Players[index].name,
+                  );
                   Get.toNamed(AppRoutes.editplayer, arguments: index);
                 },
+                leading: CircleAvatar(
+                  backgroundImage:
+                      footballplayercontroller.Players[index].image,
+                  radius: 25,
+                ),
+
                 title: Text(footballplayercontroller.Players[index].name),
+                subtitle: Text(
+                  "${footballplayercontroller.Players[index].number} | ${footballplayercontroller.Players[index].position}",
+                ),
               );
             },
           ),
