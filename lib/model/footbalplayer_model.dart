@@ -6,7 +6,7 @@ class FootballPlayerModel {
   String name;
   String number;
   String position;
-  ImageProvider image;
+  String image;
 
   FootballPlayerModel({
     required this.name,

@@ -7,17 +7,20 @@ class EditPlayerPage extends StatelessWidget {
   final int index;
   final Footballplayercontroller controller = Get.find();
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController numberController = TextEditingController();
-  final TextEditingController positionController = TextEditingController();
+  
 
   EditPlayerPage({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     
+    final int index = Get.arguments as int;
     final player = controller.Players[index];
+    
 
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController numberController = TextEditingController();
+    final TextEditingController positionController = TextEditingController();
   
     nameController.text = player.name;
     numberController.text = player.number;

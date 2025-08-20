@@ -21,18 +21,17 @@ class FootballPlayer extends StatelessWidget {
           () => ListView.builder(
             itemCount: footballplayercontroller.Players.length,
             itemBuilder: (context, index) {
+              final player = footballplayercontroller.Players[index];
               return ListTile(
                 onTap: () {
                   print(
                     " Player Clicked : " +
                         footballplayercontroller.Players[index].name,
                   );
-                  Get.toNamed(AppRoutes.editplayer, arguments: index);
+                  Get.toNamed(AppRoutes.editplayer, arguments: index);  
                 },
-                leading: CircleAvatar(
-                  backgroundImage:
-                      footballplayercontroller.Players[index].image,
-                  radius: 25,
+                leading: Image.asset(
+                 player.image, width: 50,height: 50,
                 ),
 
                 title: Text(footballplayercontroller.Players[index].name),
