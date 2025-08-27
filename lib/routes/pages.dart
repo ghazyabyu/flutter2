@@ -10,7 +10,7 @@ class AppPages {
   static final pages = [
     GetPage(name: AppRoutes.Calculator, page: () => Calculator()),
     GetPage(name: AppRoutes.Football, page: () => FootballPlayer()),
-    GetPage(name: AppRoutes.editplayer, page:()=>  EditPlayerPage (index: 0)),
-    GetPage(name: AppRoutes.NavPage, page:()=>  NavPage ())
+    GetPage(name: AppRoutes.editplayer, page: () => EditPlayerPage()),
+    GetPage(name: AppRoutes.NavPage, page: () => NavPage()),
   ];
 }

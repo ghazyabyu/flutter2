@@ -1,13 +1,45 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter2/model/footbalplayer_model.dart';
 import 'package:flutter2/controllers/Footballplayercontroller.dart';
+import 'package:flutter2/model/footbalplayer_model.dart';
 
 class EditPlayerController extends GetxController {
+  final name = TextEditingController();
+  final number = TextEditingController();
+  final position = TextEditingController();
 
-  final footballPlayerController = Get.find<Footballplayercontroller>();
+  late int index;
+  final playerController = Get.find<Footballplayercontroller>();
 
-  void updatePlayer(int index, FootballPlayerModel updatedPlayer) {
-    footballPlayerController.Players[index] = updatedPlayer;
-    footballPlayerController.Players.refresh(); 
+  @override
+  void onInit() {
+    super.onInit();
+    index = Get.arguments as int;
+
+    final player = playerController.Players[index];
+    name.text = player.name;
+    number.text = player.number;
+    position.text = player.position;
+  }
+
+  void save() {
+    playerController.updatePlayer(
+      index,
+      FootballPlayerModel(
+        name: name.text,
+        number: number.text,
+        position: position.text,
+        image: playerController.Players[index].image,
+      ),
+    );
+    Get.back();
+  }
+
+  @override
+  void onClose() {
+    name.dispose();
+    number.dispose();
+    position.dispose();
+    super.onClose();
   }
 }

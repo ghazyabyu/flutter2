@@ -35,4 +35,8 @@ class Footballplayercontroller extends GetxController {
       image: "assets/images/ibrahim_maza.jpg",
     ),
   ].obs;
+
+ void updatePlayer(int index, FootballPlayerModel newPlayer) {
+  Players[index] = newPlayer;
+  }
 }

@@ -25,14 +25,11 @@ class FootballPlayer extends StatelessWidget {
               return ListTile(
                 onTap: () {
                   print(
-                    " Player Clicked : " +
-                        footballplayercontroller.Players[index].name,
+                    " Player Clicked : " + footballplayercontroller.Players[index].name,
                   );
-                  Get.toNamed(AppRoutes.editplayer, arguments: index);  
+                  Get.toNamed(AppRoutes.editplayer, arguments: index);
                 },
-                leading: Image.asset(
-                 player.image, width: 50,height: 50,
-                ),
+                leading: Image.asset(player.image, width: 50, height: 50),
 
                 title: Text(footballplayercontroller.Players[index].name),
                 subtitle: Text(

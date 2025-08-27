@@ -9,15 +9,14 @@ import 'package:flutter2/controllers/navcontroller.dart';
 class NavPage extends StatelessWidget {
   NavPage({super.key});
 
-  final NavController navController = Get.put(NavController());
+   NavController navController = Get.put(NavController());
 
-  final List<Widget> _pages = [Calculator(), FootballPlayer(), ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        body: _pages[navController.selectedIndex.value],
+        body: navController.pages[navController.selectedIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: navController.selectedIndex.value,
           onTap: navController.changePage,

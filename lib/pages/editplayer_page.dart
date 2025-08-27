@@ -1,31 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/Footballplayercontroller.dart';
+import '../controllers/editplayer_controller.dart';
 import 'package:flutter2/model/footbalplayer_model.dart';
 
 class EditPlayerPage extends StatelessWidget {
-  final int index;
-  final Footballplayercontroller controller = Get.find();
+  EditPlayerPage({super.key});
 
-  
+  final editPlayerController = Get.put(EditPlayerController());
 
-  EditPlayerPage({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     
-    final int index = Get.arguments as int;
-    final player = controller.Players[index];
-    
-
-    final TextEditingController nameController = TextEditingController();
-    final TextEditingController numberController = TextEditingController();
-    final TextEditingController positionController = TextEditingController();
-  
-    nameController.text = player.name;
-    numberController.text = player.number;
-    positionController.text = player.position;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Edit Player"),
@@ -35,36 +22,23 @@ class EditPlayerPage extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              controller: nameController,
+              controller: editPlayerController.name,
               decoration: const InputDecoration(labelText: 'Nama'),
             ),
             TextField(
-              controller: numberController,
+              controller: editPlayerController.number,
               decoration: const InputDecoration(labelText: 'Nomor'),
             ),
             TextField(
-              controller: positionController,
+              controller: editPlayerController.position,
               decoration: const InputDecoration(labelText: 'Posisi'),
             ),
             const SizedBox(height: 20), 
             ElevatedButton(
-              onPressed: () {
-               
-                controller.Players[index] = FootballPlayerModel(
-                  name: nameController.text,
-                  number: numberController.text,
-                  position: positionController.text,
-                  image: player.image,
-                );
-
-               
-                controller.Players.refresh();
-
-                
-                Get.back();
-              },
-              child: const Text('save'),
-            )
+              onPressed: editPlayerController.save,
+                child: const Text('save'),
+              
+            ),
           ],
         ),
       ),
