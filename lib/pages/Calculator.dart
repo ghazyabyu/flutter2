@@ -7,10 +7,9 @@ import 'package:flutter2/routes/routes.dart';
 import 'package:get/get.dart';
 
 class Calculator extends StatelessWidget {
-  final CalculatorController calculatorController = Get.put(
-    CalculatorController(),
-  );
-
+  
+  final CalculatorController calculatorController = Get.find<CalculatorController>();
+  
   Calculator({super.key});
 
   @override
@@ -20,13 +19,13 @@ class Calculator extends StatelessWidget {
       body: Column(
         children: [
           Customtextfield(
-            controller: calculatorController.txtangka1,
+            controller: Get.find<CalculatorController>().txtangka1,
             label: "input angka 1",
             labelcolor: Colors.green,
             pass: false,
           ),
           Customtextfield(
-            controller: calculatorController.txtangka2,
+            controller: Get.find<CalculatorController>().txtangka2,
             label: "input angka 2",
             labelcolor: Colors.green,
             pass: false,
@@ -38,14 +37,14 @@ class Calculator extends StatelessWidget {
                 myText: "+",
                 myTextColor: Colors.deepOrangeAccent,
                 onPressed: () {
-                  calculatorController.tambah();
+                  Get.find<CalculatorController>().tambah();
                 },
               ),
               Custombutton(
                 myText: "-",
                 myTextColor: Colors.deepOrangeAccent,
                 onPressed: () {
-                  calculatorController.kurang();
+                  Get.find<CalculatorController>().kurang();
                 },
               ),
             ],
@@ -57,14 +56,14 @@ class Calculator extends StatelessWidget {
                 myText: "*",
                 myTextColor: Colors.deepOrangeAccent,
                 onPressed: () {
-                  calculatorController.kali();
+                  Get.find<CalculatorController>().kali();
                 },
               ),
               Custombutton(
                 myText: "/",
                 myTextColor: Colors.deepOrangeAccent,
                 onPressed: () {
-                  calculatorController.bagi();
+                  Get.find<CalculatorController>().bagi();
                 },
               ),
             ],
@@ -74,7 +73,7 @@ class Calculator extends StatelessWidget {
             height: 50,
             child: Obx(() {
               return Text(
-                "Hasil: ${calculatorController.textresult.value}",
+                "Hasil: ${Get.find<CalculatorController>().textresult.value}",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               );
             }),
@@ -83,7 +82,9 @@ class Calculator extends StatelessWidget {
           Custombutton(
             myText: "clear",
             myTextColor: Colors.deepPurple,
-            onPressed: calculatorController.clear,
+            onPressed: () {
+              Get.find<CalculatorController>().clear();
+            },
           ),
           SizedBox(height: 10),
           Custombutton(

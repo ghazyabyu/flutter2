@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CalculatorController extends GetxController {
+  
   final txtangka1 = TextEditingController();
   final txtangka2 = TextEditingController();
   var textresult = "".obs;

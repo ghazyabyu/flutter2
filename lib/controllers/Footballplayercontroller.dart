@@ -3,6 +3,8 @@ import 'package:flutter2/model/footbalplayer_model.dart';
 import 'package:flutter/material.dart';
 
 class Footballplayercontroller extends GetxController {
+  var isMobile = true.obs;
+
   var Players = <FootballPlayerModel>[
     FootballPlayerModel(
       name: "Patrik Schick",
@@ -38,5 +40,8 @@ class Footballplayercontroller extends GetxController {
 
  void updatePlayer(int index, FootballPlayerModel newPlayer) {
   Players[index] = newPlayer;
+  }
+  void updateLayout(BoxConstraints constraints) {
+    isMobile.value = constraints.maxWidth < 600;
   }
 }

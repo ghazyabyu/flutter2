@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter2/controllers/navcontroller.dart';
 
 import 'Calculator.dart';
 import 'Football_player.dart';
 import 'Profile_page.dart';
-import 'package:flutter2/controllers/navcontroller.dart';
+
 
 class NavPage extends StatelessWidget {
   NavPage({super.key});
 
-   NavController navController = Get.put(NavController());
+   final navController = Get.put(NavController());
 
 
   @override
